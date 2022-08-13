@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Order(1)
-public class ComposicaoTeste implements ApplicationRunner {
+public class CienteTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
