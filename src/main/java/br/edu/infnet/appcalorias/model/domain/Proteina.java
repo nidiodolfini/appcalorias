@@ -14,7 +14,10 @@ public class Proteina extends Composicao{
                 ", incompletas=" + incompletas +
                 "} " + super.toString();
     }
-
+    @Override
+    public float calcularCalorias() {
+        return getGrama() * 4;
+    }
     public boolean isVegetal() {
         return vegetal;
     }
@@ -37,5 +40,11 @@ public class Proteina extends Composicao{
 
     public void setIncompletas(boolean incompletas) {
         this.incompletas = incompletas;
+    }
+
+    @Override
+    public void impressao() {
+        System.out.println("Proteina");
+        System.out.println(this);
     }
 }

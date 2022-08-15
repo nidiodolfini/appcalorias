@@ -1,8 +1,10 @@
 package br.edu.infnet.appcalorias.model.domain;
 
+import br.edu.infnet.appcalorias.interfaces.IPrinter;
+
 import java.time.LocalDateTime;
 
-public class Refeicao {
+public class Refeicao implements IPrinter {
 
     private LocalDateTime horario;
     private String descricao;
@@ -39,5 +41,11 @@ public class Refeicao {
 
     public void setCalorias(float calorias) {
         this.calorias = calorias;
+    }
+
+    @Override
+    public void impressao() {
+        System.out.println("Refeição");
+        System.out.println(this);
     }
 }

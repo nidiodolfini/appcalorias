@@ -23,7 +23,7 @@ public class CarboidratoTeste implements ApplicationRunner {
         carb1.setComplexo(true);
         carb1.setIndiceGlicemico(10);
         carb1.setFibra(38);
-        System.out.println(carb1.toString());
+        AppImpressao.relatorio("Inclusão Banana", carb1);
 
         Carboidrato carb2 = new Carboidrato();
         carb2.setNome("Morango");
@@ -35,7 +35,7 @@ public class CarboidratoTeste implements ApplicationRunner {
         carb2.setComplexo(true);
         carb2.setIndiceGlicemico(5);
         carb2.setFibra(42);
-        System.out.println(carb2.toString());
+        AppImpressao.relatorio("Inclusão Morango", carb2);
 
         Carboidrato carb3 = new Carboidrato();
         carb3.setNome("Pão francês");
@@ -47,7 +47,7 @@ public class CarboidratoTeste implements ApplicationRunner {
         carb3.setComplexo(false);
         carb3.setIndiceGlicemico(98);
         carb3.setFibra(8);
-        System.out.println(carb3.toString());
+        AppImpressao.relatorio("Inclusão Pão francês", carb3);
 
 
 

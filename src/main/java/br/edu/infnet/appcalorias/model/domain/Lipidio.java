@@ -13,7 +13,10 @@ public class Lipidio extends Composicao{
                 ", tipoGordura='" + tipoGordura + '\'' +
                 "} " + super.toString();
     }
-
+    @Override
+    public float calcularCalorias() {
+        return getGrama() * 9;
+    }
     public boolean isGorduraBoa() {
         return gorduraBoa;
     }
@@ -36,5 +39,11 @@ public class Lipidio extends Composicao{
 
     public void setTipoGordura(String tipoGordura) {
         this.tipoGordura = tipoGordura;
+    }
+
+    @Override
+    public void impressao() {
+        System.out.println("Lipidio");
+        System.out.println(this);
     }
 }

@@ -23,7 +23,7 @@ public class LipidioTeste implements ApplicationRunner {
         lipidio1.setGorduraBoa(true);
         lipidio1.setAcidosGraxos(10);
         lipidio1.setTipoGordura("Poli");
-        System.out.println(lipidio1.toString());
+        AppImpressao.relatorio("Inclusão Abacate", lipidio1);
 
         Lipidio lipidio2 = new Lipidio();
         lipidio2.setNome("Ovo");
@@ -35,7 +35,7 @@ public class LipidioTeste implements ApplicationRunner {
         lipidio2.setGorduraBoa(true);
         lipidio2.setAcidosGraxos(10);
         lipidio2.setTipoGordura("Mono");
-        System.out.println(lipidio2.toString());
+        AppImpressao.relatorio("Inclusão Ovo", lipidio2);
 
         Lipidio lipidio3 = new Lipidio();
         lipidio3.setNome("Manteiga");
@@ -47,7 +47,7 @@ public class LipidioTeste implements ApplicationRunner {
         lipidio3.setGorduraBoa(true);
         lipidio3.setAcidosGraxos(18);
         lipidio3.setTipoGordura("Saturada");
-        System.out.println(lipidio3.toString());
+        AppImpressao.relatorio("Inclusão Manteiga", lipidio3);
     }
 
 

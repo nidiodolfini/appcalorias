@@ -1,12 +1,16 @@
 package br.edu.infnet.appcalorias.model.domain;
 
-public class Composicao {
+import br.edu.infnet.appcalorias.interfaces.IPrinter;
+
+public abstract class Composicao implements IPrinter {
     private String nome;
-    private int calorias;
+    private float calorias;
     private float grama;
     private float proteina;
     private float carboidrato;
     private float gordura;
+
+    public abstract float calcularCalorias();
 
 
     @Override
@@ -29,11 +33,11 @@ public class Composicao {
         this.nome = nome;
     }
 
-    public int getCalorias() {
+    public float getCalorias() {
         return calorias;
     }
 
-    public void setCalorias(int calorias) {
+    public void setCalorias(float calorias) {
         this.calorias = calorias;
     }
 
@@ -68,4 +72,10 @@ public class Composicao {
     public void setGordura(float gordura) {
         this.gordura = gordura;
     }
+
+//    @Override
+//    public void impressao() {
+//        System.out.println("Composição");
+//        System.out.println(this);
+//    }
 }

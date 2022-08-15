@@ -26,7 +26,7 @@ public class ProteinaTeste implements ApplicationRunner {
         proteina1.setVegetal(true);
         proteina1.setIncompletas(true);
         proteina1.setValorBiologico(20);
-        System.out.println(proteina1.toString());
+        AppImpressao.relatorio("Inclusão Feijão", proteina1);
 
         Proteina proteina2 = new Proteina();
         proteina2.setNome("Carne");
@@ -38,7 +38,7 @@ public class ProteinaTeste implements ApplicationRunner {
         proteina2.setVegetal(false);
         proteina2.setIncompletas(false);
         proteina2.setValorBiologico(98);
-        System.out.println(proteina2.toString());
+        AppImpressao.relatorio("Inclusão Carne", proteina2);
 
         Proteina proteina3 = new Proteina();
         proteina3.setNome("Frango");
@@ -50,7 +50,7 @@ public class ProteinaTeste implements ApplicationRunner {
         proteina3.setVegetal(false);
         proteina3.setIncompletas(false);
         proteina3.setValorBiologico(82);
-        System.out.println(proteina3.toString());
+        AppImpressao.relatorio("Inclusão Frango", proteina3);
 
     }
 

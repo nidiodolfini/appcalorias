@@ -6,6 +6,11 @@ public class Carboidrato extends Composicao {
     private float fibra;
 
     @Override
+    public float calcularCalorias() {
+        return getGrama() * 4;
+    }
+
+    @Override
     public String toString() {
         return "Carboidrato{" +
                 "complexo=" + complexo +
@@ -36,5 +41,11 @@ public class Carboidrato extends Composicao {
 
     public void setFibra(float fibra) {
         this.fibra = fibra;
+    }
+
+    @Override
+    public void impressao() {
+        System.out.println("Carboidrato");
+        System.out.println(this);
     }
 }

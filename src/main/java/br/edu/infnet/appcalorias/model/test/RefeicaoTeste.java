@@ -18,19 +18,21 @@ public class RefeicaoTeste implements ApplicationRunner {
         ref1.setDescricao("Almoço");
         ref1.setCalorias(250);
         ref1.setHorario(LocalDateTime.now());
-        System.out.println(ref1.toString());
+        AppImpressao.relatorio("Inclusão Almoço", ref1);
 
         Refeicao ref2 = new Refeicao();
         ref2.setDescricao("Janta");
         ref2.setCalorias(185);
         ref2.setHorario(LocalDateTime.now());
         System.out.println(ref2.toString());
+        AppImpressao.relatorio("Inclusão Janta", ref2);
 
         Refeicao ref3 = new Refeicao();
         ref3.setDescricao("Café da tarde");
         ref3.setCalorias(150);
         ref3.setHorario(LocalDateTime.now());
         System.out.println(ref3.toString());
+        AppImpressao.relatorio("Inclusão Café da tarde", ref3);
 
     }
 

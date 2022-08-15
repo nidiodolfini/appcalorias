@@ -1,6 +1,8 @@
 package br.edu.infnet.appcalorias.model.domain;
 
-public class Cliente {
+import br.edu.infnet.appcalorias.interfaces.IPrinter;
+
+public class Cliente implements IPrinter {
     private String nome;
     private float peso;
     private float altura;
@@ -53,5 +55,11 @@ public class Cliente {
 
     public void setConsumoBasal(float consumoBasal) {
         this.consumoBasal = consumoBasal;
+    }
+
+    @Override
+    public void impressao() {
+        System.out.println("Cliente");
+        System.out.println(this);
     }
 }
