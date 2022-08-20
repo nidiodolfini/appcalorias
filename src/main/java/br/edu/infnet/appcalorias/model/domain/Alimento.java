@@ -2,7 +2,7 @@ package br.edu.infnet.appcalorias.model.domain;
 
 import br.edu.infnet.appcalorias.interfaces.IPrinter;
 
-public abstract class Composicao implements IPrinter {
+public abstract class Alimento implements IPrinter {
     private String nome;
     private float calorias;
     private float grama;

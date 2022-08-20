@@ -1,6 +1,6 @@
 package br.edu.infnet.appcalorias.model.domain;
 
-public class Proteina extends Composicao{
+public class Proteina extends Alimento {
 
     private boolean vegetal;
     private float valorBiologico;

@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ComposicaoController {
-    @GetMapping(value = "/composicao/lista")
+public class AlimentoController {
+    @GetMapping(value = "/alimento/lista")
     public String telaLista(){
-        return "composicao/lista";
+        return "alimento/lista";
     }
 }

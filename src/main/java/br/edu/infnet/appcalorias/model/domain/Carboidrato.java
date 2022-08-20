@@ -1,6 +1,6 @@
 package br.edu.infnet.appcalorias.model.domain;
 
-public class Carboidrato extends Composicao {
+public class Carboidrato extends Alimento {
     private boolean complexo;
     private int indiceGlicemico;
     private float fibra;

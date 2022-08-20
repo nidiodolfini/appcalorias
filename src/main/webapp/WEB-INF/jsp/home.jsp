@@ -55,7 +55,7 @@
         </tbody>
     </table>
 
-    <h3>Classe: Composição</h3>
+    <h3>Classe: Alimento</h3>
     <table class="table table-striped">
         <thead>
         <tr>

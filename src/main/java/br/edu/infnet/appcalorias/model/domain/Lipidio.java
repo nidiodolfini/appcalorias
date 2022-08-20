@@ -1,6 +1,6 @@
 package br.edu.infnet.appcalorias.model.domain;
 
-public class Lipidio extends Composicao{
+public class Lipidio extends Alimento {
     private boolean gorduraBoa;
     private float acidosGraxos;
     private String tipoGordura;
