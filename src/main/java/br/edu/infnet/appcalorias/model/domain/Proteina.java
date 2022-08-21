@@ -4,14 +4,14 @@ public class Proteina extends Alimento {
 
     private boolean vegetal;
     private float valorBiologico;
-    private boolean incompletas;
+    private boolean incompleta;
 
     @Override
     public String toString() {
         return "Proteina{" +
                 "vegetal=" + vegetal +
                 ", valorBiologico=" + valorBiologico +
-                ", incompletas=" + incompletas +
+                ", incompletas=" + incompleta +
                 "} " + super.toString();
     }
     @Override
@@ -34,12 +34,12 @@ public class Proteina extends Alimento {
         this.valorBiologico = valorBiologico;
     }
 
-    public boolean isIncompletas() {
-        return incompletas;
+    public boolean isIncompleta() {
+        return incompleta;
     }
 
-    public void setIncompletas(boolean incompletas) {
-        this.incompletas = incompletas;
+    public void setIncompleta(boolean incompleta) {
+        this.incompleta = incompleta;
     }
 
     @Override

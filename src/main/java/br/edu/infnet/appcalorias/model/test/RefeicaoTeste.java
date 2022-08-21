@@ -1,5 +1,7 @@
 package br.edu.infnet.appcalorias.model.test;
 
+import br.edu.infnet.appcalorias.controller.AlimentoController;
+import br.edu.infnet.appcalorias.controller.RefeicaoController;
 import br.edu.infnet.appcalorias.model.domain.*;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,7 +18,7 @@ public class RefeicaoTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        Set<Alimento> composicoes = new HashSet<Alimento>();
+        Set<Alimento> alimentos = new HashSet<Alimento>();
         Carboidrato carb1 = new Carboidrato();
         carb1.setNome("Banana");
         carb1.setCalorias(84);
@@ -27,7 +29,8 @@ public class RefeicaoTeste implements ApplicationRunner {
         carb1.setComplexo(true);
         carb1.setIndiceGlicemico(10);
         carb1.setFibra(38);
-        composicoes.add(carb1);
+        alimentos.add(carb1);
+
 
         Proteina proteina1 = new Proteina();
         proteina1.setNome("Feijão");
@@ -37,9 +40,9 @@ public class RefeicaoTeste implements ApplicationRunner {
         proteina1.setCarboidrato(8);
         proteina1.setGordura(2);
         proteina1.setVegetal(true);
-        proteina1.setIncompletas(true);
+        proteina1.setIncompleta(true);
         proteina1.setValorBiologico(20);
-        composicoes.add(proteina1);
+        alimentos.add(proteina1);
 
         Lipidio lipidio1 = new Lipidio();
         lipidio1.setNome("Abacate");
@@ -51,9 +54,9 @@ public class RefeicaoTeste implements ApplicationRunner {
         lipidio1.setGorduraBoa(true);
         lipidio1.setAcidosGraxos(10);
         lipidio1.setTipoGordura("Poli");
-        composicoes.add(lipidio1);
-        composicoes.add(lipidio1);
-        composicoes.add(lipidio1);
+        alimentos.add(lipidio1);
+        alimentos.add(lipidio1);
+        alimentos.add(lipidio1);
 
         Cliente cliente1 = new Cliente("Nidio Dolfini", 109, 184, 2204);
 
@@ -64,20 +67,20 @@ public class RefeicaoTeste implements ApplicationRunner {
         Refeicao ref1 = new Refeicao(cliente1);
         ref1.setDescricao("Almoço");
         ref1.setCalorias(250);
-        ref1.setAlimentos(composicoes);
-        AppImpressao.relatorio("Inclusão Almoço", ref1);
+        ref1.setAlimentos(alimentos);
+        RefeicaoController.incluir(ref1);
 
         Refeicao ref2 = new Refeicao(cliente2);
         ref2.setDescricao("Janta");
         ref2.setCalorias(185);
-        ref2.setAlimentos(composicoes);
-        AppImpressao.relatorio("Inclusão Janta", ref2);
+        ref2.setAlimentos(alimentos);
+        RefeicaoController.incluir(ref2);
 
         Refeicao ref3 = new Refeicao(cliente3);
         ref3.setDescricao("Café da tarde");
         ref3.setCalorias(150);
-        ref3.setAlimentos(composicoes);
-        AppImpressao.relatorio("Inclusão Café da tarde", ref3);
+        ref3.setAlimentos(alimentos);
+        RefeicaoController.incluir(ref3);
 
     }
 

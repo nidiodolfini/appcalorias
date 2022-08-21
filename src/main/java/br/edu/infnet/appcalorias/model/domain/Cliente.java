@@ -7,6 +7,7 @@ public class Cliente implements IPrinter {
     private float peso;
     private float altura;
     private float consumoBasal;
+    private int id;
 
     public Cliente(String nome, float peso, float altura, float consumoBasal) {
         this.nome = nome;
@@ -18,11 +19,20 @@ public class Cliente implements IPrinter {
     @Override
     public String toString() {
         return "Cliente{" +
+                "Id: " + id +
                 "nome='" + nome + '\'' +
                 ", peso=" + peso +
                 ", altura=" + altura +
                 ", consumoBasal=" + consumoBasal +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

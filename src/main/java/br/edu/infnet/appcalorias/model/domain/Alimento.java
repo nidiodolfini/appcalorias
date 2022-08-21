@@ -3,6 +3,7 @@ package br.edu.infnet.appcalorias.model.domain;
 import br.edu.infnet.appcalorias.interfaces.IPrinter;
 
 public abstract class Alimento implements IPrinter {
+    private Integer id;
     private String nome;
     private float calorias;
     private float grama;
@@ -16,6 +17,7 @@ public abstract class Alimento implements IPrinter {
     @Override
     public String toString() {
         return "Composicao{" +
+                "Id: " + id +
                 "nome='" + nome + '\'' +
                 ", calorias=" + calorias +
                 ", grama=" + grama +
@@ -24,7 +26,13 @@ public abstract class Alimento implements IPrinter {
                 ", gordura=" + gordura +
                 '}';
     }
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public String getNome() {
         return nome;
     }

@@ -1,13 +1,11 @@
 package br.edu.infnet.appcalorias.model.test;
 
-import br.edu.infnet.appcalorias.model.domain.Carboidrato;
+import br.edu.infnet.appcalorias.controller.ProteinaController;
 import br.edu.infnet.appcalorias.model.domain.Proteina;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
 
 @Component
 @Order(1)
@@ -24,9 +22,9 @@ public class ProteinaTeste implements ApplicationRunner {
         proteina1.setCarboidrato(8);
         proteina1.setGordura(2);
         proteina1.setVegetal(true);
-        proteina1.setIncompletas(true);
+        proteina1.setIncompleta(true);
         proteina1.setValorBiologico(20);
-        AppImpressao.relatorio("Inclusão Feijão", proteina1);
+        ProteinaController.incluir(proteina1);
 
         Proteina proteina2 = new Proteina();
         proteina2.setNome("Carne");
@@ -36,9 +34,9 @@ public class ProteinaTeste implements ApplicationRunner {
         proteina2.setCarboidrato(8);
         proteina2.setGordura(2);
         proteina2.setVegetal(false);
-        proteina2.setIncompletas(false);
+        proteina2.setIncompleta(false);
         proteina2.setValorBiologico(98);
-        AppImpressao.relatorio("Inclusão Carne", proteina2);
+        ProteinaController.incluir(proteina2);
 
         Proteina proteina3 = new Proteina();
         proteina3.setNome("Frango");
@@ -48,9 +46,9 @@ public class ProteinaTeste implements ApplicationRunner {
         proteina3.setCarboidrato(8);
         proteina3.setGordura(2);
         proteina3.setVegetal(false);
-        proteina3.setIncompletas(false);
+        proteina3.setIncompleta(false);
         proteina3.setValorBiologico(82);
-        AppImpressao.relatorio("Inclusão Frango", proteina3);
+        ProteinaController.incluir(proteina3);
 
     }
 

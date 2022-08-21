@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class Refeicao implements IPrinter {
 
+    private int id;
     private LocalDateTime horario;
     private String descricao;
     private float calorias;
@@ -29,10 +30,19 @@ public class Refeicao implements IPrinter {
     @Override
     public String toString() {
         return "Refeicao{" +
-                "horario=" + horario +
+                "Id " + id+
+                " horario=" + horario +
                 ", descricao='" + descricao + '\'' +
                 ", calorias=" + calorias +"Cliente" + cliente + " Alimentos: "+ alimentos.size()+
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -63,5 +73,9 @@ public class Refeicao implements IPrinter {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public LocalDateTime getHorario() {
+        return horario;
     }
 }

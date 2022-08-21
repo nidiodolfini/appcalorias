@@ -1,5 +1,6 @@
 package br.edu.infnet.appcalorias.model.test;
 
+import br.edu.infnet.appcalorias.controller.ClienteController;
 import br.edu.infnet.appcalorias.model.domain.Cliente;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,13 +15,14 @@ public class ClienteTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
         Cliente cliente1 = new Cliente("Nidio Dolfini", 109, 184, 2204);
-        AppImpressao.relatorio("Inclusão Cliente 1", cliente1);
+        ClienteController.incluir(cliente1);
 
         Cliente cliente2 = new Cliente("Sophia Dolfini", 52, 154, 1835);
-        AppImpressao.relatorio("Inclusão Cliente 2", cliente2);
+        ClienteController.incluir(cliente2);
 
         Cliente cliente3 = new Cliente("Ana Ciarnicoli", 64, 151, 1650);
-        AppImpressao.relatorio("Inclusão Cliente 3", cliente3);
+        ClienteController.incluir(cliente3);
+
 
 
 

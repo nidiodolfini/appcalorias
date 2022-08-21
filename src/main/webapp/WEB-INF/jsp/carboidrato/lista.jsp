@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>id</th>
             <th>nome</th>
             <th>calorias</th>
             <th>grama</th>
@@ -35,42 +37,25 @@
             <th>complexo</th>
             <th>indiceGlicemico</th>
             <th>fibra</th>
+            <th> </th>
         </tr>
         </thead>
         <tbody>
+        <c:forEach var="carb" items="${listagem}">
         <tr>
-            <td>Banana</td>
-            <td>84</td>
-            <td>90</td>
-            <td>6</td>
-            <td>8</td>
-            <td>2</td>
-            <td>true</td>
-            <td>10</td>
-            <td>38</td>
+            <td>${carb.id}</td>
+            <td>${carb.nome}</td>
+            <td>${carb.calorias}</td>
+            <td>${carb.grama}</td>
+            <td>${carb.proteina}</td>
+            <td>${carb.carboidrato}</td>
+            <td>${carb.gordura}</td>
+            <td>${carb.complexo}</td>
+            <td>${carb.indiceGlicemico}</td>
+            <td>${carb.fibra}</td>
+            <td><a href="/carboidrato/${carb.id}/excluir">Excluir</a></td>
         </tr>
-        <tr>
-            <td>Morango</td>
-            <td>25</td>
-            <td>300</td>
-            <td>0</td>
-            <td>23</td>
-            <td>0</td>
-            <td>true</td>
-            <td>5</td>
-            <td>42</td>
-        </tr>
-        <tr>
-            <td>Pão francês</td>
-            <td>125</td>
-            <td>50</td>
-            <td>0</td>
-            <td>38</td>
-            <td>38</td>
-            <td>false</td>
-            <td>98</td>
-            <td>8</td>
-        </tr>
+        </c:forEach>
         </tbody>
     </table>
 

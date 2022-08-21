@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>id</th>
             <th>nome</th>
             <th>peso</th>
             <th>altura</th>
@@ -33,24 +35,16 @@
         </tr>
         </thead>
         <tbody>
+        <c:forEach var="clie" items="${listagem}">
         <tr>
-            <td>Nidio Dolfini</td>
-            <td>109</td>
-            <td>184</td>
-            <td>2204</td>
+            <td>${clie.id}</td>
+            <td>${clie.nome}</td>
+            <td>${clie.peso}</td>
+            <td>${clie.altura}</td>
+            <td>${clie.consumoBasal}</td>
+            <td><a href="/cliente/${clie.id}/excluir">Excluir</a></td>
         </tr>
-        <tr>
-            <td>Sophia Dolfini</td>
-            <td>52</td>
-            <td>154</td>
-            <td>1835</td>
-        </tr>
-        <tr>
-            <td>Ana Ciarnicoli</td>
-            <td>64</td>
-            <td>151</td>
-            <td>1650</td>
-        </tr>
+        </c:forEach>
         </tbody>
     </table>
 

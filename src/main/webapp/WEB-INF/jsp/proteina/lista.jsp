@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>Id</th>
             <th>nome</th>
             <th>calorias</th>
             <th>grama</th>
@@ -34,43 +36,25 @@
             <th>gordura</th>
             <th>vegetal</th>
             <th>valorBiologico</th>
-            <th>incompletas</th>
+            <th>incompleta</th>
         </tr>
         </thead>
         <tbody>
+        <c:forEach var="prot" items="${listagem}">
         <tr>
-            <td>Feijão</td>
-            <td>84</td>
-            <td>90</td>
-            <td>6</td>
-            <td>8</td>
-            <td>2</td>
-            <td>true</td>
-            <td>true</td>
-            <td>20</td>
+            <td>${prot.id}</td>
+            <td>${prot.nome}</td>
+            <td>${prot.calorias}</td>
+            <td>${prot.grama}</td>
+            <td>${prot.proteina}</td>
+            <td>${prot.carboidrato}</td>
+            <td>${prot.gordura}</td>
+            <td>${prot.vegetal}</td>
+            <td>${prot.valorBiologico}</td>
+            <td>${prot.incompleta}</td>
+            <td><a href="/proteina/${prot.id}/excluir">Excluir</a></td>
         </tr>
-        <tr>
-            <td>Carne</td>
-            <td>84</td>
-            <td>90</td>
-            <td>6</td>
-            <td>8</td>
-            <td>2</td>
-            <td>false</td>
-            <td>false</td>
-            <td>98</td>
-        </tr>
-        <tr>
-            <td>Frango</td>
-            <td>84</td>
-            <td>90</td>
-            <td>6</td>
-            <td>8</td>
-            <td>2</td>
-            <td>false</td>
-            <td>false</td>
-            <td>82</td>
-        </tr>
+        </c:forEach>
         </tbody>
     </table>
 

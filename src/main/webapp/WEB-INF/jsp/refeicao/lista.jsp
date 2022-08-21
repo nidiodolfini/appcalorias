@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,27 +27,23 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>Id</th>
             <th>descricao</th>
             <th>calorias</th>
             <th>horario</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Almoço</td>
-            <td>250</td>
-            <td>2022-08-14T16:38:31.690800600</td>
-        </tr>
-        <tr>
-            <td>Janta</td>
-            <td>185</td>
-            <td>2022-08-14T23:42:48.024373900</td>
-        </tr>
-        <tr>
-            <td>Café da tarde</td>
-            <td>150</td>
-            <td>022-08-14T23:43:34.375213</td>
-        </tr>
+        <c:forEach var="ref" items="${listagem}">
+            <tr>
+                <td>${ref.id}</td>
+                <td>${ref.descricao}</td>
+                <td>${ref.calorias}</td>
+                <td>${ref.horario}</td>
+                <td><a href="/refeicao/${ref.id}/excluir">Excluir</a></td>
+            </tr>
+        </c:forEach>
+
         </tbody>
     </table>
 

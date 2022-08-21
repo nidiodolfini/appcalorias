@@ -1,5 +1,6 @@
 package br.edu.infnet.appcalorias.model.test;
 
+import br.edu.infnet.appcalorias.controller.LipidioController;
 import br.edu.infnet.appcalorias.model.domain.Carboidrato;
 import br.edu.infnet.appcalorias.model.domain.Lipidio;
 import org.springframework.boot.ApplicationArguments;
@@ -23,7 +24,8 @@ public class LipidioTeste implements ApplicationRunner {
         lipidio1.setGorduraBoa(true);
         lipidio1.setAcidosGraxos(10);
         lipidio1.setTipoGordura("Poli");
-        AppImpressao.relatorio("Inclusão Abacate", lipidio1);
+        LipidioController.incluir(lipidio1);
+
 
         Lipidio lipidio2 = new Lipidio();
         lipidio2.setNome("Ovo");
@@ -35,7 +37,7 @@ public class LipidioTeste implements ApplicationRunner {
         lipidio2.setGorduraBoa(true);
         lipidio2.setAcidosGraxos(10);
         lipidio2.setTipoGordura("Mono");
-        AppImpressao.relatorio("Inclusão Ovo", lipidio2);
+        LipidioController.incluir(lipidio2);
 
         Lipidio lipidio3 = new Lipidio();
         lipidio3.setNome("Manteiga");
@@ -47,7 +49,8 @@ public class LipidioTeste implements ApplicationRunner {
         lipidio3.setGorduraBoa(true);
         lipidio3.setAcidosGraxos(18);
         lipidio3.setTipoGordura("Saturada");
-        AppImpressao.relatorio("Inclusão Manteiga", lipidio3);
+        LipidioController.incluir(lipidio3);
+
     }
 
 

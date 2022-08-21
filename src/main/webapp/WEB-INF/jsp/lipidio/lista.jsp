@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>Id</th>
             <th>nome</th>
             <th>calorias</th>
             <th>grama</th>
@@ -38,39 +40,21 @@
         </tr>
         </thead>
         <tbody>
+        <c:forEach var="lip" items="${listagem}">
         <tr>
-            <td>Abacate</td>
-            <td>84</td>
-            <td>90</td>
-            <td>6</td>
-            <td>8</td>
-            <td>2</td>
-            <td>true</td>
-            <td>10</td>
-            <td>Poli</td>
+            <td>${lip.id}</td>
+            <td>${lip.nome}</td>
+            <td>${lip.calorias}</td>
+            <td>${lip.grama}</td>
+            <td>${lip.proteina}</td>
+            <td>${lip.carboidrato}</td>
+            <td>${lip.gordura}</td>
+            <td>${lip.gorduraBoa}</td>
+            <td>${lip.acidosGraxos}</td>
+            <td>${lip.tipoGordura}</td>
+            <td><a href="/lipidio/${lip.id}/excluir">Excluir</a></td>
         </tr>
-        <tr>
-            <td>Ovo</td>
-            <td>108</td>
-            <td>13</td>
-            <td>6</td>
-            <td>8</td>
-            <td>2</td>
-            <td>true</td>
-            <td>10</td>
-            <td>Mono</td>
-        </tr>
-        <tr>
-            <td>Manteiga</td>
-            <td>206</td>
-            <td>13</td>
-            <td>6</td>
-            <td>8</td>
-            <td>29</td>
-            <td>true</td>
-            <td>18</td>
-            <td>Saturada</td>
-        </tr>
+        </c:forEach>
         </tbody>
     </table>
 
