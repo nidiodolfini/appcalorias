@@ -3,6 +3,9 @@ package br.edu.infnet.appcalorias.model.test;
 import br.edu.infnet.appcalorias.controller.AlimentoController;
 import br.edu.infnet.appcalorias.controller.RefeicaoController;
 import br.edu.infnet.appcalorias.model.domain.*;
+import br.edu.infnet.appcalorias.model.exceptions.AlimentoException;
+import br.edu.infnet.appcalorias.model.exceptions.ClienteNullException;
+import br.edu.infnet.appcalorias.model.exceptions.CpfInvalidoException;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -16,7 +19,7 @@ import java.util.Set;
 public class RefeicaoTeste implements ApplicationRunner {
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
 
         Set<Alimento> alimentos = new HashSet<Alimento>();
         Carboidrato carb1 = new Carboidrato();
@@ -55,32 +58,36 @@ public class RefeicaoTeste implements ApplicationRunner {
         lipidio1.setAcidosGraxos(10);
         lipidio1.setTipoGordura("Poli");
         alimentos.add(lipidio1);
-        alimentos.add(lipidio1);
-        alimentos.add(lipidio1);
 
-        Cliente cliente1 = new Cliente("Nidio Dolfini", 109, 184, 2204);
+        Cliente cliente1 = null;
+        try {
 
-        Cliente cliente2 = new Cliente("Sophia Dolfini", 52, 154, 1835);
-
-        Cliente cliente3 = new Cliente("Ana Ciarnicoli", 64, 151, 1650);
-
-        Refeicao ref1 = new Refeicao(cliente1);
-        ref1.setDescricao("Almoço");
-        ref1.setCalorias(250);
-        ref1.setAlimentos(alimentos);
-        RefeicaoController.incluir(ref1);
-
-        Refeicao ref2 = new Refeicao(cliente2);
-        ref2.setDescricao("Janta");
-        ref2.setCalorias(185);
-        ref2.setAlimentos(alimentos);
-        RefeicaoController.incluir(ref2);
-
-        Refeicao ref3 = new Refeicao(cliente3);
-        ref3.setDescricao("Café da tarde");
-        ref3.setCalorias(150);
-        ref3.setAlimentos(alimentos);
-        RefeicaoController.incluir(ref3);
+            cliente1 = new Cliente("361828","Nidio Dolfini", 109, 184, 2204);
+            Refeicao ref1 = new Refeicao(cliente1, alimentos);
+            ref1.setDescricao("Almoço");
+            ref1.setCalorias(250);
+            RefeicaoController.incluir(ref1);
+        } catch (CpfInvalidoException | ClienteNullException | AlimentoException e) {
+            System.out.println("[ERRO] - Solicitante" + e.getMessage());
+        }
+        try {
+            Cliente cliente2 = new Cliente("361282","Sophia Dolfini", 52, 154, 1835);
+            Refeicao ref2 = new Refeicao(cliente2, alimentos);
+            ref2.setDescricao("Janta");
+            ref2.setCalorias(185);
+            RefeicaoController.incluir(ref2);
+        } catch (CpfInvalidoException | ClienteNullException | AlimentoException e) {
+            System.out.println("[ERRO] - Solicitante" + e.getMessage());
+        }
+        try {
+            Cliente cliente3 = new Cliente("371661","Ana Ciarnicoli", 64, 151, 1650);
+            Refeicao ref3 = new Refeicao(cliente3, alimentos);
+            ref3.setDescricao("Café da tarde");
+            ref3.setCalorias(150);
+            RefeicaoController.incluir(ref3);
+        } catch (CpfInvalidoException | ClienteNullException | AlimentoException e) {
+            System.out.println("[ERRO] - Solicitante" + e.getMessage());
+        }
 
     }
 

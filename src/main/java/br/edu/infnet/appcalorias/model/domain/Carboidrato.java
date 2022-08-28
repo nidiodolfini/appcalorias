@@ -1,12 +1,17 @@
 package br.edu.infnet.appcalorias.model.domain;
 
+import br.edu.infnet.appcalorias.model.exceptions.CalcularCaloriasException;
+
 public class Carboidrato extends Alimento {
     private boolean complexo;
     private int indiceGlicemico;
     private float fibra;
 
     @Override
-    public float calcularCalorias() {
+    public float calcularCalorias() throws CalcularCaloriasException {
+        if(getCarboidrato() * 4 < 25){
+            throw new CalcularCaloriasException(" Calorias inferior ao necessário");
+        }
         return getGrama() * 4;
     }
 

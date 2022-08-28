@@ -1,6 +1,8 @@
 package br.edu.infnet.appcalorias.model.domain;
 
 import br.edu.infnet.appcalorias.interfaces.IPrinter;
+import br.edu.infnet.appcalorias.model.exceptions.AlimentoException;
+import br.edu.infnet.appcalorias.model.exceptions.ClienteNullException;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -14,17 +16,16 @@ public class Refeicao implements IPrinter {
     private Cliente cliente;
     private Set<Alimento> alimentos;
 
-    public Set<Alimento> getAlimentos() {
-        return alimentos;
-    }
-
-    public void setAlimentos(Set<Alimento> alimentos) {
-        this.alimentos = alimentos;
-    }
-
-    public Refeicao(Cliente cliente) {
+    public Refeicao(Cliente cliente, Set<Alimento> alimentos) throws ClienteNullException, AlimentoException {
         this.horario = LocalDateTime.now();
+        if(cliente == null){
+            throw new ClienteNullException("Cliente Nulo");
+        }
+        if(alimentos.size() < 1){
+            throw new AlimentoException("Deve contem ao menos um alimento por refeição");
+        }
         this.cliente = cliente;
+        this.alimentos = alimentos;
     }
 
     @Override

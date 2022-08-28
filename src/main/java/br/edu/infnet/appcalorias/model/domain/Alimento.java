@@ -1,6 +1,7 @@
 package br.edu.infnet.appcalorias.model.domain;
 
 import br.edu.infnet.appcalorias.interfaces.IPrinter;
+import br.edu.infnet.appcalorias.model.exceptions.CalcularCaloriasException;
 
 public abstract class Alimento implements IPrinter {
     private Integer id;
@@ -11,7 +12,7 @@ public abstract class Alimento implements IPrinter {
     private float carboidrato;
     private float gordura;
 
-    public abstract float calcularCalorias();
+    public abstract float calcularCalorias() throws CalcularCaloriasException;
 
 
     @Override
@@ -81,9 +82,4 @@ public abstract class Alimento implements IPrinter {
         this.gordura = gordura;
     }
 
-//    @Override
-//    public void impressao() {
-//        System.out.println("Composição");
-//        System.out.println(this);
-//    }
 }

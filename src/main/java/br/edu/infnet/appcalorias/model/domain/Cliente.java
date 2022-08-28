@@ -1,15 +1,32 @@
 package br.edu.infnet.appcalorias.model.domain;
 
 import br.edu.infnet.appcalorias.interfaces.IPrinter;
+import br.edu.infnet.appcalorias.model.exceptions.CpfInvalidoException;
 
 public class Cliente implements IPrinter {
+    private String cpf;
     private String nome;
     private float peso;
     private float altura;
     private float consumoBasal;
     private int id;
 
-    public Cliente(String nome, float peso, float altura, float consumoBasal) {
+    public Cliente(String cpf, String nome, float peso, float altura, float consumoBasal) throws CpfInvalidoException {
+
+        if(cpf == null){
+            throw new CpfInvalidoException("CPF invalido ");
+        }else if(cpf.isEmpty()){
+            throw new CpfInvalidoException("CPF invalido ");
+        }
+//       if (peso <= 0){
+//           throw new Exception("Valor deve ser positivo");
+//       }
+//        if (altura <= 0){
+//            throw new Exception("Valor deve ser positivo");
+//        }
+//        if (consumoBasal <= 0){
+//            throw new Exception("Valor deve ser positivo");
+//        }
         this.nome = nome;
         this.peso = peso;
         this.altura = altura;
