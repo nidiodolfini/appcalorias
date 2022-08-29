@@ -1,0 +1,5 @@
+Café da manhã;150;11111111111;Nidio Dolfini;109;184;2204;
+Almoço;250;222222222;Sophia Dolfini;68;164;1804;
+Lanche;350;33333333333;Ana Ciarnicoli;65;1534;1604;
+Janta;450;444444444444;Merlot Ciarnicoli Dolfini;5;55;104;
+Ceia;550;555555555555;Malbec Ciarnicoli Dolfini;6;60;204;
