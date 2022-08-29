@@ -11,15 +11,12 @@ public abstract class Alimento implements IPrinter {
     private float proteina;
     private float carboidrato;
     private float gordura;
-
     public abstract float calcularCalorias() throws CalcularCaloriasException;
-
-
     @Override
     public String toString() {
         return "Composicao{" +
                 "Id: " + id +
-                "nome='" + nome + '\'' +
+                " nome='" + nome + '\'' +
                 ", calorias=" + calorias +
                 ", grama=" + grama +
                 ", proteina=" + proteina +

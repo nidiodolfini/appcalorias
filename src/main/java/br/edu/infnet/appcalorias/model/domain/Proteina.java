@@ -1,5 +1,7 @@
 package br.edu.infnet.appcalorias.model.domain;
 
+import br.edu.infnet.appcalorias.model.exceptions.CalcularCaloriasException;
+
 public class Proteina extends Alimento {
 
     private boolean vegetal;
@@ -15,7 +17,10 @@ public class Proteina extends Alimento {
                 "} " + super.toString();
     }
     @Override
-    public float calcularCalorias() {
+    public float calcularCalorias() throws CalcularCaloriasException {
+        if(getProteina() * 4 < 25){
+            throw new CalcularCaloriasException(" Calorias inferior ao necessário");
+        }
         return getGrama() * 4;
     }
     public boolean isVegetal() {

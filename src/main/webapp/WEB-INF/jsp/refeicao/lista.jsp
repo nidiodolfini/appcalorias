@@ -31,6 +31,8 @@
             <th>descricao</th>
             <th>calorias</th>
             <th>horario</th>
+            <th>cliente</th>
+            <th>alimentos</th>
         </tr>
         </thead>
         <tbody>
@@ -40,6 +42,8 @@
                 <td>${ref.descricao}</td>
                 <td>${ref.calorias}</td>
                 <td>${ref.horario}</td>
+                <td>${ref.cliente.nome}</td>
+                <td>${ref.alimentos.size()}</td>
                 <td><a href="/refeicao/${ref.id}/excluir">Excluir</a></td>
             </tr>
         </c:forEach>

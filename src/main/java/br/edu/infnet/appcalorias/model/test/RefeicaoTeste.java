@@ -1,16 +1,21 @@
 package br.edu.infnet.appcalorias.model.test;
 
-import br.edu.infnet.appcalorias.controller.AlimentoController;
+
 import br.edu.infnet.appcalorias.controller.RefeicaoController;
 import br.edu.infnet.appcalorias.model.domain.*;
 import br.edu.infnet.appcalorias.model.exceptions.AlimentoException;
 import br.edu.infnet.appcalorias.model.exceptions.ClienteNullException;
 import br.edu.infnet.appcalorias.model.exceptions.CpfInvalidoException;
+import br.edu.infnet.appcalorias.model.exceptions.FibraException;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,9 +36,12 @@ public class RefeicaoTeste implements ApplicationRunner {
         carb1.setGordura(2);
         carb1.setComplexo(true);
         carb1.setIndiceGlicemico(10);
-        carb1.setFibra(38);
+        try {
+            carb1.setFibra(38);
+        } catch (FibraException e) {
+            System.out.println("[ERRO -- Fibra ]" + e.getMessage());
+        }
         alimentos.add(carb1);
-
 
         Proteina proteina1 = new Proteina();
         proteina1.setNome("Feijão");
@@ -59,37 +67,38 @@ public class RefeicaoTeste implements ApplicationRunner {
         lipidio1.setTipoGordura("Poli");
         alimentos.add(lipidio1);
 
-        Cliente cliente1 = null;
+        String dir = "c:/dev/";
+        String arq = "refeicao.txt";
         try {
+            FileReader fileReader = new FileReader(dir + arq);
+            BufferedReader leitura = new BufferedReader(fileReader);
+            System.out.printf("leitura" + leitura);
 
-            cliente1 = new Cliente("361828","Nidio Dolfini", 109, 184, 2204);
-            Refeicao ref1 = new Refeicao(cliente1, alimentos);
-            ref1.setDescricao("Almoço");
-            ref1.setCalorias(250);
-            RefeicaoController.incluir(ref1);
-        } catch (CpfInvalidoException | ClienteNullException | AlimentoException e) {
-            System.out.println("[ERRO] - Solicitante" + e.getMessage());
-        }
-        try {
-            Cliente cliente2 = new Cliente("361282","Sophia Dolfini", 52, 154, 1835);
-            Refeicao ref2 = new Refeicao(cliente2, alimentos);
-            ref2.setDescricao("Janta");
-            ref2.setCalorias(185);
-            RefeicaoController.incluir(ref2);
-        } catch (CpfInvalidoException | ClienteNullException | AlimentoException e) {
-            System.out.println("[ERRO] - Solicitante" + e.getMessage());
-        }
-        try {
-            Cliente cliente3 = new Cliente("371661","Ana Ciarnicoli", 64, 151, 1650);
-            Refeicao ref3 = new Refeicao(cliente3, alimentos);
-            ref3.setDescricao("Café da tarde");
-            ref3.setCalorias(150);
-            RefeicaoController.incluir(ref3);
-        } catch (CpfInvalidoException | ClienteNullException | AlimentoException e) {
-            System.out.println("[ERRO] - Solicitante" + e.getMessage());
-        }
+            String linha = leitura.readLine();
+            System.out.println("linha" + linha);
+            while (linha != null) {
+                System.out.println(linha);
+                try {
+                    String[] campos = linha.split(";");
+                    Cliente cliente1 = new Cliente(campos[2], campos[3], Integer.parseInt(campos[4]), Integer.parseInt(campos[5]), Integer.parseInt(campos[6]));
+                    Refeicao ref1 = new Refeicao(cliente1, alimentos);
+                    ref1.setDescricao(campos[0]);
+                    ref1.setCalorias(Integer.parseInt(campos[1]));
+                    RefeicaoController.incluir(ref1);
+                } catch (CpfInvalidoException | ClienteNullException | AlimentoException e) {
+                    System.out.println("[ERRO] - Solicitante" + e.getMessage());
+                }
+                linha = leitura.readLine();
+            }
+            leitura.close();
+            fileReader.close();
 
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo não encontrado");
+        } catch (IOException e) {
+            System.out.println("Exceção de entrada IO");
+        } finally {
+            System.out.println("Finally");
+        }
     }
-
-
 }

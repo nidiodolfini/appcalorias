@@ -32,7 +32,6 @@ public class Cliente implements IPrinter {
         this.altura = altura;
         this.consumoBasal = consumoBasal;
     }
-
     @Override
     public String toString() {
         return "Cliente{" +
@@ -43,43 +42,33 @@ public class Cliente implements IPrinter {
                 ", consumoBasal=" + consumoBasal +
                 '}';
     }
-
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public float getPeso() {
         return peso;
     }
-
     public void setPeso(float peso) {
         this.peso = peso;
     }
-
     public float getAltura() {
         return altura;
     }
-
     public void setAltura(float altura) {
         this.altura = altura;
     }
-
     public float getConsumoBasal() {
         return consumoBasal;
     }
-
     public void setConsumoBasal(float consumoBasal) {
         this.consumoBasal = consumoBasal;
     }

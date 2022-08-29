@@ -1,5 +1,7 @@
 package br.edu.infnet.appcalorias.model.domain;
 
+import br.edu.infnet.appcalorias.model.exceptions.CalcularCaloriasException;
+
 public class Lipidio extends Alimento {
     private boolean gorduraBoa;
     private float acidosGraxos;
@@ -13,10 +15,15 @@ public class Lipidio extends Alimento {
                 ", tipoGordura='" + tipoGordura + '\'' +
                 "} " + super.toString();
     }
+
     @Override
-    public float calcularCalorias() {
+    public float calcularCalorias() throws CalcularCaloriasException {
+        if (getGordura() * 9 < 45) {
+            throw new CalcularCaloriasException(" Calorias inferior ao necessário");
+        }
         return getGrama() * 9;
     }
+
     public boolean isGorduraBoa() {
         return gorduraBoa;
     }

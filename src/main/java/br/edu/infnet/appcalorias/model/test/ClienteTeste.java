@@ -15,7 +15,6 @@ public class ClienteTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args){
 
-
         try {
             Cliente  cliente1 = new Cliente("361828","Nidio Dolfini", 109, 184, 2204);
             ClienteController.incluir(cliente1);
@@ -36,10 +35,6 @@ public class ClienteTeste implements ApplicationRunner {
         } catch (CpfInvalidoException e) {
             System.out.println("[ERRO]" + e.getMessage());
         }
-
-
-
-
 
     }
 

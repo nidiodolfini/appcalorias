@@ -33,9 +33,21 @@ public class Refeicao implements IPrinter {
         return "Refeicao{" +
                 "Id " + id+
                 " horario=" + horario +
-                ", descricao='" + descricao + '\'' +
-                ", calorias=" + calorias +"Cliente" + cliente + " Alimentos: "+ alimentos.size()+
+                ", descricao=' " + descricao + '\'' +
+                ", calorias= " + calorias +" Cliente " + cliente + " Alimentos: "+ alimentos.size()+
                 '}';
+    }
+
+    public void setHorario(LocalDateTime horario) {
+        this.horario = horario;
+    }
+
+    public Set<Alimento> getAlimentos() {
+        return alimentos;
+    }
+
+    public void setAlimentos(Set<Alimento> alimentos) {
+        this.alimentos = alimentos;
     }
 
     public int getId() {
